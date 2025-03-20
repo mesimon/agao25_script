@@ -28,10 +28,16 @@ jobs:
           name: agao25_script
           path: agao25_script.pdf
 
-      # Step 4: Deploy to GitHub Pages
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4.0.0
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./
-          publish_branch: gh-pages
+      # Step 4: Commit and push the PDF to the main branch
+      - name: Commit and push PDF to main
+        run: |
+          # Configure Git
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Add and commit the PDF
+          git add agao25_script.pdf || echo "No changes to commit"
+          git commit -m "Update PDF [skip ci]" || echo "No changes to commit"
+
+          # Push to main (force-push to overwrite history if needed)
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
