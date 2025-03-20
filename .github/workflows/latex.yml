@@ -25,5 +25,14 @@ jobs:
       - name: Upload PDF artifact
         uses: actions/upload-artifact@v4.6.2
         with:
-          name: compiled-pdf
+          name: agao25_script
           path: agao25_script.pdf
+
+      # Step 4: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4.0.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
+          publish_branch: gh-pages # Branch where the PDF will be published
+          allow_empty_commit: true
