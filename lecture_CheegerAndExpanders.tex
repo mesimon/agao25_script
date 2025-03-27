@@ -193,7 +193,7 @@ S = \begin{cases}
 We have  $\frac{\mathbb{E}_{\tau}\left[\vecone_S^\trp \LL \vecone_S\right]}{\mathbb{E}_{\tau}\left[{\vecone_S^\trp \DD \vecone_S}  \right]} \leq \sqrt{2 \cdot \frac{\zz_{sc}^\trp \LL \zz_{sc}}{\zz_{sc}^\trp \DD \zz_{sc}}}$.
 \end{claim}
 \begin{proof}
-Recall $\vecone_S^\trp \LL \vecone_S = E(S_{\tau}, V \setminus S_{\tau})$, and by choice of $\tau$, we have for any edge $e = \{i,j\} \in E$ where $\zz_{sc}(i) \leq \zz_{sc}(j)$,
+Recall $\vecone_S^\trp \LL \vecone_S = |E(S_{\tau}, V \setminus S_{\tau})|$, and by choice of $\tau$, we have for any edge $e = \{i,j\} \in E$ where $\zz_{sc}(i) \leq \zz_{sc}(j)$,
 \begin{align*}
     \mathbb{P}_{\tau}[e \in E(S_{\tau}, V \setminus S_{\tau})] &= \mathbb{P}_{\tau}[\zz_{sc}(i) < \tau \leq \zz_{sc}(j)] \\ &= \int_{t=i}^j 2|t|\; dt \\
     &= \begin{cases} \zz_{sc}(i)^2 + \zz_{sc}(j)^2
